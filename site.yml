@@ -1,6 +1,5 @@
- ---
- 
  - hosts: all
+   serial: 5
    become: true
    pre_tasks:
  
@@ -19,26 +18,31 @@
      when: ansible_distribution == "Ubuntu"
  
  - hosts: all
+   serial: 5
    become: true
    roles:
      - base
     
  - hosts: workstations
+   serial: 5
    become: true
    roles:
      - workstations
  
  - hosts: web_servers
+   serial: 5
    become: true
    roles:
      - web_servers
  
  - hosts: db_servers
+   serial: 5
    become: true
    roles:
      - db_servers
  
  - hosts: file_servers
+   serial: 5
    become: true
    roles:
      - file_servers
